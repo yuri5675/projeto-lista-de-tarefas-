@@ -1,6 +1,6 @@
 const input=document.querySelector('input');
 const buttoninserir=document.querySelector('.button_inserir');
-const buttonremove=document.querySelector('.button_remove');
+
 const buttonremovetodos=document.querySelector('.button_remove_todos');
 const ol= document.querySelector('ol');
 const button = document.querySelectorAll('button');
@@ -48,16 +48,27 @@ button.forEach((itembutton,indice)=>{
 input.addEventListener('keyup',teclado);
 function teclado(evento){
 
-    if(input.value==""){
+    if(input.value=="" &&   evento.key === 'Enter'){
         alert('Erro,digite algo')
     }else{
-        if(evento.key === 'Enter'){
+        
+        if( evento.key === 'Enter'  ){
             const li= document.createElement('li');
-            li.append(input.value);
-            ol.appendChild(li);
+            const button=document.createElement('button')
+            button.setAttribute ('class','button_a')
+            li.append(input.value,button);
+        ol.appendChild(li);
+        button.innerText='❌'
+        input.value="" 
+        button.addEventListener('click', removeuni);
+        function removeuni(){
+            li.remove();
+        }
+
         }
     }
 
+   
 
 }
 
@@ -66,8 +77,17 @@ function teclado(evento){
 //aplicando button para inserir 
 buttoninserir.addEventListener('click',inserir);
 function inserir(){
-    const inserirli=document.querySelectorAll('li')
-    ol.inserir(inserirli[inserirli.length])
+    const li = document.createElement('li');
+    const button=document.createElement('button')
+            button.setAttribute ('class','button_b')
+            li.append(input.value,button);
+    ol.appendChild(li);
+    button.innerText='❌'
+     input.value=""
+        button.addEventListener('click', removeuni);
+        function removeuni(){
+            li.remove();
+        }
 
 
 }
@@ -79,12 +99,7 @@ function inserir(){
 
 
 
-//aplicando o evento click no botão remover
-buttonremove.addEventListener('click',remove);
-function remove(){
-    const removeli = document.querySelectorAll('li')
-    ol.removeChild(removeli[removeli.length-1])
-}
+
 
 
 //aplicando remover todos
@@ -92,8 +107,15 @@ buttonremovetodos.addEventListener('click',removetodos);
 function removetodos(){
 const removeli=document.querySelectorAll('li');
 ol.remove(removeli[removeli.length]);
+location.reload()
 
 }
+
+
+
+
+
+
 
 
 
