@@ -1,4 +1,14 @@
 
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+
+
+
 #cabecalho{
     width: 100%;
    max-width: 1850px;
@@ -24,7 +34,6 @@ text-transform: uppercase;
 
 
 .cabecalho_menu_ul{
-border: 7px solid black;
 display: flex;
 gap: 25px;
 justify-content: center;
@@ -39,7 +48,7 @@ opacity: 1;
     font-size: 1.25rem;
     display: block;
     color: #fff;
-    transition: all 0.5s;
+ 
     cursor: pointer;
    
     
@@ -48,30 +57,50 @@ opacity: 1;
 }
 
 
-.cabecalho_menu_ul a :hover{
-   
-
-
-}
 
 
 /*inicio*/
 
-.inicio_tarefas{
-   border: 7px solid black;
+.inicio{
    width: 100%;
-   max-width: 600px;
-   
-   
-   
-   
-  
+   height: 500px;
+   max-width: 850px;
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 2%);
+   border-radius: 25px;
+   position: relative;
+   top: 35px;
    
 
+
    
-   
-    
+}
+
+
+.inicio h2{
+    position: relative;
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+
 
     
 
 }
+
+
+.inicio ol{
+
+    border:  7px solid red;
+    position: relative;
+    left: 20px;
+ 
+    
+
+
+}
+
+.inicio input{
+    margin: 8px;
+}
+
